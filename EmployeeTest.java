@@ -16,9 +16,4 @@ public class EmployeeTest {
             System.out.println("name = "+ w.getName() +", salary = "+ w.getSalary());
         }
     }
-
-
-
-
-
 }
