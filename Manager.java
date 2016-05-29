@@ -17,4 +17,17 @@ public class Manager extends Employee{
     public void setBonus(double bonus) {
         this.bonus = bonus;
     }
+
+    @Override
+    public boolean equals(Object otherObject) {
+        if (!super.equals(otherObject)) return false;
+        Manager other = (Manager) otherObject;
+        return bonus==other.bonus;
+    }
+
+    @Override
+    public int hashCode() {
+        return super.hashCode() + 17*new Double(bonus).hashCode();
+    }
 }
+

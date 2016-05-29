@@ -1,5 +1,6 @@
 import java.util.Date;
 import java.util.GregorianCalendar;
+import java.util.Objects;
 
 class Employee{
     private String name;
@@ -37,6 +38,26 @@ class Employee{
         id = nextId;
         nextId++;
     }
+
+    public boolean equals(Object otherObject){
+        //быстро проверить объекты на идентичность
+        if (this == otherObject) return true;
+        // если янвый параметр имеет пустое значение должно быть возвращено логическое знаение false
+        if (otherObject == null) return false;
+        // если классы не совпадают, то они неравнозначны
+        if (getClass()!=otherObject.getClass()) return false;
+        //теперь известно , что Otherobject непустой объект типа Employee
+        Employee other = (Employee) otherObject;
+
+        //проверить, содержат ли поля одинаковые значения
+        return Objects.equals(name,other.name) && salary==other.salary && Objects.equals(hireDay, other.hireDay);
+    }
+
+    public int hashCode(){
+        return Objects.hash(name,salary,hireDay);
+    }
+
+
 
     public static int getNextId() {
         return nextId;
